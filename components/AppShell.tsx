@@ -2,9 +2,12 @@
 
 import Tabs from "./Tabs";
 import { StatusBar, Style } from "@capacitor/status-bar";
+import { defineCustomElements } from "@ionic/pwa-elements/loader";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { Route } from "react-router-dom";
+
+defineCustomElements(window);
 
 // import { CapacitorSQLite } from "@capacitor-community/sqlite";
 
@@ -27,16 +30,14 @@ window
     } catch {}
   });
 
-const AppShell = () => {
-  return (
-    <IonApp>
-      <IonReactRouter>
-        <IonRouterOutlet id="main">
-          <Route path="/" render={() => <Tabs />} />
-        </IonRouterOutlet>
-      </IonReactRouter>
-    </IonApp>
-  );
-};
+const AppShell: React.FC = () => (
+  <IonApp>
+    <IonReactRouter>
+      <IonRouterOutlet id="main">
+        <Route path="/" render={() => <Tabs />} />
+      </IonRouterOutlet>
+    </IonReactRouter>
+  </IonApp>
+);
 
 export default AppShell;

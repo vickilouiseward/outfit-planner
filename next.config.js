@@ -1,5 +1,5 @@
 module.exports = {
-  basePath: "",
+  reactStrictMode: true,
   images: {
     remotePatterns: [
       {

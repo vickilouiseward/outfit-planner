@@ -1,4 +1,4 @@
-import Settings from "@/views/Settings";
+import Upload from "@/views/Upload";
 import {
   IonRouterOutlet,
   IonTabs,
@@ -7,23 +7,21 @@ import {
   IonIcon,
   IonLabel,
 } from "@ionic/react";
-import { cog } from "ionicons/icons";
+import { fileTray } from "ionicons/icons";
 import { Route } from "react-router-dom";
 
-const Tabs = () => {
-  return (
-    <IonTabs>
-      <IonRouterOutlet>
-        <Route path="/settings" render={() => <Settings />} exact={true} />
-      </IonRouterOutlet>
-      <IonTabBar slot="bottom">
-        <IonTabButton tab="tab1" href="/settings">
-          <IonIcon icon={cog} />
-          <IonLabel>Settings</IonLabel>
-        </IonTabButton>
-      </IonTabBar>
-    </IonTabs>
-  );
-};
+const Tabs: React.FC = () => (
+  <IonTabs>
+    <IonRouterOutlet>
+      <Route path="/upload" render={() => <Upload />} exact={true} />
+    </IonRouterOutlet>
+    <IonTabBar slot="bottom">
+      <IonTabButton tab="tab1" href="/upload">
+        <IonIcon icon={fileTray} />
+        <IonLabel>Upload</IonLabel>
+      </IonTabButton>
+    </IonTabBar>
+  </IonTabs>
+);
 
 export default Tabs;
